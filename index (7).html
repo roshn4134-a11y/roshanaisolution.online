@@ -1,0 +1,1542 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071426">
+
+  <title>Roshan AI Solutions | RFP Compliance Review for IT Contractors</title>
+  <meta name="description" content="Tool-assisted, human-reviewed RFP compliance and proposal readiness reviews for IT contractors. First check on one solicitation is free. Identify mandatory requirements, submission risks, amendment changes, and documentation gaps before submitting your bid.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://roshaniaisolution.online/">
+
+  <meta property="og:title" content="Roshan AI Solutions | RFP Compliance Review">
+  <meta property="og:description" content="Know what your solicitation requires before you submit. Human-reviewed compliance matrices, risk reports, amendment tracking, and submission checklists.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roshaniaisolution.online/">
+
+  <style>
+    :root {
+      --bg: #071426;
+      --bg-soft: #0b1c32;
+      --panel: #10243c;
+      --panel-light: #132b47;
+      --blue: #4d9cff;
+      --blue-bright: #73b5ff;
+      --cyan: #69e0ee;
+      --white: #f5f8ff;
+      --text: #bdcadd;
+      --muted: #8295ad;
+      --border: rgba(166, 196, 230, 0.15);
+      --green: #68dfb0;
+      --radius: 18px;
+      --max-width: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--white);
+      background:
+        radial-gradient(ellipse at 85% 5%, rgba(40, 104, 180, .15), transparent 35%),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--cyan);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .section { padding: 94px 0; }
+
+    .section-alt {
+      background: rgba(11, 28, 50, .68);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--blue-bright);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      background: var(--blue);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1, h2, h3 {
+      line-height: 1.15;
+      letter-spacing: -.035em;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 22px 0;
+      font-size: clamp(2.65rem, 6vw, 5rem);
+      font-weight: 800;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      font-weight: 780;
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      font-size: 1.15rem;
+    }
+
+    p { color: var(--text); }
+
+    .gradient-text {
+      color: var(--blue-bright);
+      background: linear-gradient(90deg, #72b5ff, #6ce0ec);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-intro {
+      max-width: 690px;
+      margin-bottom: 42px;
+    }
+
+    .section-intro p {
+      margin-bottom: 0;
+      font-size: 1.05rem;
+    }
+
+    .center { text-align: center; }
+    .center .section-intro { margin-inline: auto; }
+    .center .eyebrow { justify-content: center; }
+
+    /* Navigation */
+
+    .site-header {
+      position: sticky;
+      z-index: 100;
+      top: 0;
+      background: rgba(7, 20, 38, .9);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #4d9cff, #2462b4);
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 900;
+      box-shadow: 0 7px 25px rgba(51, 127, 226, .2);
+    }
+
+    .brand-name {
+      display: block;
+      color: var(--white);
+      font-size: .99rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .brand-subtitle {
+      display: block;
+      color: var(--muted);
+      font-size: .69rem;
+      letter-spacing: .04em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    .nav-links > a:not(.btn) {
+      color: var(--text);
+      font-size: .88rem;
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .nav-links > a:not(.btn):hover { color: var(--white); }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 12px;
+      color: var(--white);
+      background: var(--panel);
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    /* Buttons */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      color: white;
+      background: linear-gradient(135deg, #428ef0, #286bd0);
+      box-shadow: 0 8px 24px rgba(41, 107, 208, .19);
+      font-size: .92rem;
+      font-weight: 750;
+      text-align: center;
+      text-decoration: none;
+      transition: transform .2s, filter .2s, border-color .2s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.09);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, .035);
+      border-color: rgba(174, 204, 241, .25);
+      box-shadow: none;
+    }
+
+    .btn-small {
+      min-height: 41px;
+      padding: 9px 15px;
+      font-size: .85rem;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 28px;
+    }
+
+    /* Hero */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0 78px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 25px;
+      right: -190px;
+      width: 580px;
+      height: 580px;
+      border: 1px solid rgba(77, 156, 255, .1);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 55px rgba(77, 156, 255, .025),
+        0 0 0 110px rgba(77, 156, 255, .02);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.13fr .87fr;
+      align-items: center;
+      gap: 62px;
+    }
+
+    .hero-copy > p {
+      max-width: 660px;
+      font-size: 1.12rem;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .check-icon {
+      display: inline-grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      color: var(--green);
+      background: rgba(104, 223, 176, .1);
+      font-size: .8rem;
+      font-weight: 900;
+    }
+
+    .hero-visual {
+      position: relative;
+      padding: 25px;
+      border: 1px solid rgba(129, 180, 238, .23);
+      border-radius: 22px;
+      background: linear-gradient(145deg, rgba(20, 45, 74, .95), rgba(10, 25, 44, .97));
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .2);
+    }
+
+    .visual-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .visual-label {
+      color: var(--muted);
+      font-size: .73rem;
+      font-weight: 750;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .status-pill {
+      padding: 5px 9px;
+      border: 1px solid rgba(104, 223, 176, .24);
+      border-radius: 99px;
+      color: var(--green);
+      background: rgba(104, 223, 176, .07);
+      font-size: .7rem;
+      font-weight: 750;
+    }
+
+    .visual-heading {
+      margin: 20px 0 6px;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .visual-description {
+      margin-bottom: 22px;
+      font-size: .83rem;
+    }
+
+    .visual-row {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 15px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .visual-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      border-radius: 11px;
+      color: var(--blue-bright);
+      background: rgba(77, 156, 255, .11);
+      font-size: 1.15rem;
+    }
+
+    .visual-row strong {
+      display: block;
+      font-size: .88rem;
+    }
+
+    .visual-row small {
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    .visual-footer {
+      margin-top: 15px;
+      padding: 13px;
+      border-radius: 10px;
+      color: var(--text);
+      background: rgba(77, 156, 255, .07);
+      font-size: .78rem;
+    }
+
+    /* Trust strip */
+
+    .trust-strip {
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, .018);
+    }
+
+    .trust-items {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      font-size: .86rem;
+      font-weight: 650;
+    }
+
+    .trust-item span {
+      color: var(--blue-bright);
+      font-size: 1.2rem;
+    }
+
+    /* Cards */
+
+    .grid-2, .grid-3, .grid-4 {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(18, 40, 65, .85), rgba(11, 28, 48, .78));
+      transition: border-color .2s, transform .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(77, 156, 255, .4);
+    }
+
+    .card-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(77, 156, 255, .18);
+      border-radius: 13px;
+      color: var(--blue-bright);
+      background: rgba(77, 156, 255, .09);
+      font-size: 1.35rem;
+    }
+
+    .card p {
+      margin-bottom: 0;
+      font-size: .91rem;
+    }
+
+    .mini-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--blue-bright);
+      font-size: .73rem;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    /* Process */
+
+    .step {
+      position: relative;
+      padding: 24px 23px;
+      border-top: 1px solid rgba(77, 156, 255, .42);
+      background: rgba(16, 36, 60, .55);
+      border-radius: 0 0 14px 14px;
+    }
+
+    .step-number {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(77, 156, 255, .32);
+      border-radius: 10px;
+      color: var(--blue-bright);
+      background: rgba(77, 156, 255, .1);
+      font-size: .9rem;
+      font-weight: 850;
+    }
+
+    .step p {
+      margin-bottom: 0;
+      font-size: .89rem;
+    }
+
+    /* Sample report */
+
+    .report-shell {
+      overflow: hidden;
+      border: 1px solid rgba(138, 179, 228, .22);
+      border-radius: 18px;
+      background: #0b1a2c;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, .15);
+    }
+
+    .report-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, .025);
+    }
+
+    .report-head strong { display: block; }
+
+    .report-head small {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .example-tag {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid rgba(105, 224, 238, .22);
+      border-radius: 8px;
+      color: var(--cyan);
+      background: rgba(105, 224, 238, .06);
+      font-size: .7rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .table-wrap { overflow-x: auto; }
+
+    .report-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: .82rem;
+    }
+
+    .report-table th {
+      padding: 15px 18px;
+      color: #9db4d1;
+      background: rgba(255, 255, 255, .025);
+      font-size: .72rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .report-table td {
+      padding: 17px 18px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    .report-table td:first-child {
+      min-width: 170px;
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .report-table td:nth-child(2) { min-width: 210px; }
+    .report-table td:nth-child(3) { min-width: 130px; }
+
+    .risk {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: .71rem;
+      font-weight: 800;
+    }
+
+    .risk-high {
+      color: #ffb8ad;
+      background: rgba(255, 112, 93, .1);
+    }
+
+    .risk-medium {
+      color: #ffd68a;
+      background: rgba(255, 191, 71, .1);
+    }
+
+    .risk-review {
+      color: var(--cyan);
+      background: rgba(105, 224, 238, .08);
+    }
+
+    .report-foot {
+      padding: 17px 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    /* Pricing */
+
+    .pricing-card {
+      max-width: 740px;
+      margin-inline: auto;
+      padding: clamp(25px, 5vw, 44px);
+      border: 1px solid rgba(77, 156, 255, .35);
+      border-radius: 22px;
+      background:
+        radial-gradient(ellipse at top right, rgba(77, 156, 255, .13), transparent 45%),
+        linear-gradient(145deg, #112945, #0b1b30);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, .18);
+    }
+
+    .pricing-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .price {
+      margin: 8px 0;
+      font-size: clamp(2.7rem, 7vw, 4.2rem);
+      font-weight: 850;
+      line-height: 1;
+      letter-spacing: -.06em;
+    }
+
+    .price-note {
+      color: var(--muted);
+      font-size: .83rem;
+    }
+
+    .pricing-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px 24px;
+      padding: 25px 0;
+      list-style: none;
+    }
+
+    .pricing-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--text);
+      font-size: .9rem;
+    }
+
+    .pricing-list .check-icon { margin-top: 2px; }
+
+    .pricing-bottom {
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .pricing-bottom p {
+      margin-bottom: 0;
+      font-size: .83rem;
+    }
+
+    /* FAQ */
+
+    .faq-list {
+      max-width: 850px;
+      margin-inline: auto;
+    }
+
+    details {
+      padding: 21px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    summary {
+      position: relative;
+      padding-right: 35px;
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 750;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 5px;
+      top: -4px;
+      color: var(--blue-bright);
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+
+    details[open] summary::after { content: "−"; }
+
+    details p {
+      max-width: 760px;
+      margin: 15px 0 0;
+      font-size: .92rem;
+    }
+
+    /* CTA and footer */
+
+    .cta-panel {
+      padding: clamp(28px, 6vw, 60px);
+      border: 1px solid rgba(77, 156, 255, .27);
+      border-radius: 24px;
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(77, 156, 255, .16), transparent 48%),
+        #0d2038;
+      text-align: center;
+    }
+
+    .cta-panel h2 {
+      max-width: 750px;
+      margin-inline: auto;
+    }
+
+    .cta-panel p {
+      max-width: 640px;
+      margin-inline: auto;
+    }
+
+    .cta-panel .btn-row { justify-content: center; }
+
+    .contact-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .site-footer {
+      padding: 38px 0 25px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-main {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 30px;
+      padding-bottom: 25px;
+    }
+
+    .footer-description {
+      max-width: 440px;
+      margin: 15px 0 0;
+      font-size: .83rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: var(--text);
+      font-size: .84rem;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { color: var(--blue-bright); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .75rem;
+    }
+
+    .footer-bottom p { margin: 0; font-size: inherit; }
+
+    /* Responsive */
+
+    @media (max-width: 920px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-copy { max-width: 760px; }
+      .hero-visual { max-width: 650px; }
+      .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .trust-items { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .nav-links { gap: 16px; }
+    }
+
+    @media (max-width: 680px) {
+      .container { width: min(100% - 30px, var(--max-width)); }
+      .section { padding: 70px 0; }
+      .hero { padding: 67px 0 55px; }
+      .nav { min-height: 68px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        padding: 18px 20px 22px;
+        border-bottom: 1px solid var(--border);
+        background: #08172a;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 17px;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links .btn { width: 100%; }
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .trust-items { gap: 18px 12px; }
+      .trust-item { font-size: .78rem; }
+      .hero-visual { padding: 19px; }
+      .pricing-top { flex-direction: column; }
+      .pricing-list { grid-template-columns: 1fr; gap: 13px; }
+      .report-head { align-items: flex-start; flex-direction: column; }
+      .footer-main, .footer-bottom { flex-direction: column; }
+      .btn-row .btn { width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Roshan AI Solutions home">
+        <span class="brand-mark" aria-hidden="true">R</span>
+        <span>
+          <span class="brand-name">Roshan AI Solutions</span>
+          <span class="brand-subtitle">RFP COMPLIANCE &amp; READINESS</span>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        type="button" aria-label="Open navigation" aria-expanded="false"
+        aria-controls="navLinks">☰</button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#sample">Sample Report</a>
+        <a href="#pricing">Pricing</a> <a href="#about">About</a> <a class="btn btn-small" href="mailto:hello@roshaniaisolution.online?subject=RFP%20Compliance%20Review%20Inquiry">
+          Discuss Your RFP <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">For IT contractors and government bidders</span>
+
+          <h1>
+            Know the requirements.
+            <span class="gradient-text">Reduce bid risk.</span>
+          </h1>
+
+          <p>
+            A tool-assisted, human-reviewed RFP compliance and proposal-readiness service
+            that helps IT contractors identify mandatory requirements,
+            documentation gaps, amendment changes, and submission risks
+            before they submit a bid.
+          </p>
+
+          <div class="btn-row">
+            <a class="btn" href="mailto:hello@roshaniaisolution.online?subject=RFP%20Compliance%20Review%20Inquiry&body=Hello%20Roshan%20AI%20Solutions%2C%0A%0AI%20would%20like%20to%20discuss%20an%20RFP%20compliance%20review.%0A%0ASolicitation%20number%20(if%20available)%3A%0ASubmission%20deadline%3A%0A%0APlease%20let%20me%20know%20the%20next%20steps.">
+              Get a Free First Check <span aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn-secondary" href="#sample">View Sample Matrix</a>
+          </div>
+
+          <div class="hero-note">
+            <span class="check-icon" aria-hidden="true">✓</span>
+            <span>
+              First check on one solicitation is free. Structured analysis, traceable findings, and human review. No promise of contract award or guaranteed compliance.
+            </span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Overview of the review deliverables">
+          <div class="visual-top">
+            <span class="visual-label">Review deliverables</span>
+            <span class="status-pill">Human-reviewed</span>
+          </div>
+
+          <div class="visual-heading">A clearer path to submission</div>
+          <p class="visual-description">
+            Organize the solicitation into actionable review documents.
+          </p>
+
+          <div class="visual-row">
+            <span class="visual-icon" aria-hidden="true">▤</span>
+            <div>
+              <strong>Compliance Matrix</strong>
+              <small>Requirements, references, and required actions</small>
+            </div>
+          </div>
+
+          <div class="visual-row">
+            <span class="visual-icon" aria-hidden="true">⌕</span>
+            <div>
+              <strong>Red-Flag Report</strong>
+              <small>Potential gaps, conflicts, and risks to investigate</small>
+            </div>
+          </div>
+
+          <div class="visual-row">
+            <span class="visual-icon" aria-hidden="true">↔</span>
+            <div>
+              <strong>Amendment Tracking</strong>
+              <small>Changes and their possible submission impact</small>
+            </div>
+          </div>
+
+          <div class="visual-row">
+            <span class="visual-icon" aria-hidden="true">☑</span>
+            <div>
+              <strong>Submission Checklist</strong>
+              <small>Organized checks before the deadline</small>
+            </div>
+          </div>
+
+          <div class="visual-footer">
+            Every finding should be checked against the source documents.
+            Unclear or unreadable requirements are flagged for clarification.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUE STRIP -->
+    <section class="trust-strip" aria-label="Service principles">
+      <div class="container trust-items">
+        <div class="trust-item"><span aria-hidden="true">✓</span> Source-referenced findings</div>
+        <div class="trust-item"><span aria-hidden="true">⌕</span> Risk-focused review</div>
+        <div class="trust-item"><span aria-hidden="true">↔</span> Amendment comparison</div>
+        <div class="trust-item"><span aria-hidden="true">▤</span> Actionable deliverables</div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="section" id="why">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">The challenge</span>
+          <h2>Small requirements can create big submission problems.</h2>
+          <p>
+            Government solicitations can contain mandatory forms, detailed
+            instructions, evaluation criteria, page limits, attachments,
+            and amendments. Missing or misreading one requirement can
+            create avoidable risk for a bid team.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">!</div>
+            <h3>Mandatory requirements</h3>
+            <p>
+              Identify requirements that may be overlooked across
+              instructions, forms, representations, and attachments.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">↔</div>
+            <h3>Amendment changes</h3>
+            <p>
+              Compare available solicitation versions and amendments
+              to identify changes that may require action.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">☑</div>
+            <h3>Submission readiness</h3>
+            <p>
+              Turn requirements into a practical checklist your team
+              can use to coordinate its final review.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section section-alt" id="services">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">What you receive</span>
+          <h2>Four deliverables. One organized review.</h2>
+          <p>
+            The review is designed to help your team understand what
+            the solicitation asks for, where potential issues exist,
+            and what should be verified before submission.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <span class="mini-label">Deliverable 01</span>
+            <div class="card-icon" aria-hidden="true">▤</div>
+            <h3>Compliance Matrix</h3>
+            <p>
+              A structured list of identified requirements, source
+              references, relevant deadlines, page limits where specified,
+              responsible actions, and review status.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="mini-label">Deliverable 02</span>
+            <div class="card-icon" aria-hidden="true">⚑</div>
+            <h3>Red-Flag Report</h3>
+            <p>
+              A prioritized list of potential omissions, conflicting
+              instructions, unclear requirements, eligibility questions,
+              and other issues requiring attention or clarification.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="mini-label">Deliverable 03</span>
+            <div class="card-icon" aria-hidden="true">↔</div>
+            <h3>Amendment Tracking</h3>
+            <p>
+              A comparison of the provided solicitation versions and
+              amendments, highlighting identified changes and their
+              possible impact on the response.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="mini-label">Deliverable 04</span>
+            <div class="card-icon" aria-hidden="true">☑</div>
+            <h3>Submission Checklist</h3>
+            <p>
+              A consolidated checklist of submission items, forms,
+              instructions, and final verification steps identified
+              in the review.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">How it works</span>
+          <h2>From solicitation package to actionable review.</h2>
+          <p>
+            A defined process keeps the engagement focused on the
+            actual procurement documents and the work your team needs.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <article class="step">
+            <div class="step-number">01</div>
+            <h3>Discuss the scope</h3>
+            <p>
+              Share the solicitation identifier, deadline, document
+              volume, and the review your team needs.
+            </p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">02</div>
+            <h3>Provide documents</h3>
+            <p>
+              Supply the solicitation, attachments, available amendments,
+              and relevant instructions through an agreed channel.
+            </p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">03</div>
+            <h3>Review and analyze</h3>
+            <p>
+              A tool-assisted first pass extracts requirements and compares amendments. I then review every item against the source documents before anything is delivered.
+            </p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">04</div>
+            <h3>Receive deliverables</h3>
+            <p>
+              Receive the agreed review documents and use them to
+              coordinate your team's final submission checks.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAMPLE -->
+    <section class="section section-alt" id="sample">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">Example deliverable</span>
+          <h2>See how a compliance matrix is structured.</h2>
+          <p>
+            This illustrative excerpt shows the format of a review
+            finding. It is not an actual government solicitation,
+            completed client engagement, or claim of past performance.
+          </p>
+        </div>
+
+        <div class="report-shell">
+          <div class="report-head">
+            <div>
+              <strong>Illustrative Compliance Matrix</strong>
+              <small>Example structure · Fictional requirements</small>
+            </div>
+            <span class="example-tag">SAMPLE ONLY</span>
+          </div>
+
+          <div class="table-wrap">
+            <table class="report-table">
+              <thead>
+                <tr>
+                  <th>Requirement</th>
+                  <th>Review action</th>
+                  <th>Priority</th>
+                  <th>Reference</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Required submission form</td>
+                  <td>Confirm the specified form is completed, signed where required, and included.</td>
+                  <td><span class="risk risk-high">High</span></td>
+                  <td>Example § L.2</td>
+                </tr>
+                <tr>
+                  <td>Technical volume page limit</td>
+                  <td>Verify the limit, formatting rules, and any stated exclusions.</td>
+                  <td><span class="risk risk-medium">Medium</span></td>
+                  <td>Example § L.4</td>
+                </tr>
+                <tr>
+                  <td>Amendment acknowledgement</td>
+                  <td>Check the applicable acknowledgement instructions against the latest provided amendment.</td>
+                  <td><span class="risk risk-high">High</span></td>
+                  <td>Example Amendment 02</td>
+                </tr>
+                <tr>
+                  <td>Evaluation criteria</td>
+                  <td>Map response sections to the stated evaluation factors and verify coverage.</td>
+                  <td><span class="risk risk-review">Review</span></td>
+                  <td>Example § M.1</td>
+                </tr>
+              <tr><td>Mandatory state subcontracting plan form</td><td>Confirm the form is completed, signed, and included, even if all work is self-performed.</td><td><span class="risk risk-high">High</span></td><td>Example Exhibit B</td></tr>
+                <tr><td>Due date and delivery method</td><td>Confirm the amended due date and time and the required delivery method.</td><td><span class="risk risk-high">High</span></td><td>Example § 1.4 / Amendment 01</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="report-foot">
+            Example priorities are illustrative only. Actual findings,
+            priority levels, and references depend on the source documents
+            and the agreed review scope.
+          </div>
+        </div>
+
+        <div class="btn-row" style="justify-content:center; margin-top:30px;">
+          <a class="btn" href="sample-compliance-report.pdf" download>
+            Download the Sample Report (PDF) <span aria-hidden="true">↓</span>
+          </a>
+          <a class="btn btn-secondary" href="mailto:hello@roshaniaisolution.online?subject=Request%20for%20RFP%20Review%20Sample">
+            Request a Relevant Sample
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCOPE -->
+    <section class="section" id="scope">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">Engagement fit</span>
+          <h2>Built around the procurement documents you need reviewed.</h2>
+          <p>
+            The exact solicitation type and deliverables are confirmed
+            before work begins. Share the opportunity first so the
+            scope can be assessed properly.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">⌘</div>
+            <h3>IT services solicitations</h3>
+            <p>
+              Review requests involving IT services, systems integration,
+              technical support, software, and related contracting work,
+              subject to scope confirmation.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">▣</div>
+            <h3>Multi-document packages</h3>
+            <p>
+              Work across the provided solicitation, attachments,
+              instructions, and amendments. Document completeness and
+              readability affect the review.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">⌖</div>
+            <h3>Federal, state, and local bids</h3>
+            <p>
+              Discuss your federal, state, or local opportunity before
+              engagement. Acceptance depends on the documents, complexity,
+              timing, and agreed scope.
+            </p>
+          </article>
+        </div>
+
+        <p style="margin-top:22px; font-size:.84rem;">
+          This is a document-review and proposal-readiness service.
+          It is not a guarantee of eligibility, compliance, award,
+          or legal sufficiency.
+        </p>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section section-alt" id="pricing">
+      <div class="container">
+        <div class="section-intro center">
+          <span class="eyebrow">Transparent pricing</span>
+          <h2>A clear price for a defined engagement.</h2>
+          <p>
+            The standard engagement price is fixed. The solicitation
+            package and scope must be confirmed before the engagement
+            is accepted.
+          </p>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-top">
+            <div>
+              <span class="mini-label">Standard review engagement</span>
+              <h3>RFP Compliance &amp; Readiness Review</h3>
+              <p style="margin-bottom:0;">
+                For IT contractors preparing a response to a solicitation.
+              </p>
+            </div>
+
+            <div>
+              <div class="price">$3,000</div>
+              <div class="price-note">USD · Fixed standard price</div>
+            </div>
+          </div>
+
+          <ul class="pricing-list">
+            <li><span class="check-icon">✓</span><span>Compliance matrix with source references</span></li>
+            <li><span class="check-icon">✓</span><span>Red-flag and potential-risk report</span></li>
+            <li><span class="check-icon">✓</span><span>Amendment comparison when applicable</span></li>
+            <li><span class="check-icon">✓</span><span>Submission checklist</span></li>
+            <li><span class="check-icon">✓</span><span>Human review of identified findings</span></li>
+            <li><span class="check-icon">✓</span><span>Standard delivery in 5 business days after the package is received; a 48-hour rush can be agreed for urgent deadlines</span></li>
+            <li><span class="check-icon">✓</span><span>Scope and delivery schedule confirmed before work</span></li>
+          </ul>
+
+          <div class="pricing-bottom">
+            <p style="margin:0 0 16px; padding:14px 16px; border:1px solid var(--border); border-radius:12px; background:rgba(104,223,176,.08); color:var(--white);">
+              <strong style="color:var(--green);">Start with a free first check.</strong>
+              Send one solicitation and its amendments, and I will send you the top findings within 48 hours. No cost, no obligation. You decide after you have seen the work.
+            </p>
+            <a class="btn" href="mailto:hello@roshaniaisolution.online?subject=Discuss%20a%20%243%2C000%20RFP%20Review&body=Hello%20Roshan%20AI%20Solutions%2C%0A%0AI%20would%20like%20to%20discuss%20the%20standard%20RFP%20Compliance%20%26%20Readiness%20Review.%0A%0AOrganization%3A%0ASolicitation%20number%3A%0ASubmission%20deadline%3A%0ADocument%20volume%3A%0A%0APlease%20advise%20on%20scope%20and%20next%20steps.">
+              Discuss Your RFP <span aria-hidden="true">→</span>
+            </a>
+            <p style="margin-top:15px;">
+              The price applies to an agreed scope. Unusually large,
+              urgent, or complex packages may require a separate scope
+              discussion before acceptance. No work begins until the
+              scope, timing, and commercial terms are agreed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section section-alt" id="about">
+      <div class="container">
+        <div class="section-intro">
+          <span class="eyebrow">Who is behind this</span>
+          <h2>A focused, founder-led review service.</h2>
+          <p>
+            I am Roshan, the founder of Roshan AI Solutions. You deal with me directly,
+            and I review every report myself before it is delivered. I am based in
+            Karachi, Pakistan, and I schedule calls at times that suit US teams.
+          </p>
+          <p>
+            I work only from the documents you provide, I sign a confidentiality
+            agreement before reviewing anything sensitive, and I tell you plainly what the
+            review can and cannot do. It cannot guarantee compliance or an award.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-intro center">
+          <span class="eyebrow">Frequently asked questions</span>
+          <h2>Before we review your solicitation.</h2>
+          <p>Important details about the service and engagement process.</p>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>What is the free first check?</summary>
+            <p>
+              It is a first-pass review of one solicitation and its amendments. I send you the top findings within 48 hours so you can judge the work before deciding on a full review. There is no cost and no obligation. It is not a full review and does not replace one.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do you use AI or software?</summary>
+            <p>
+              Yes, in part. A tool does the first pass: it extracts requirements and compares amendments. I then review every item against the source documents myself, and the report is reviewed and signed off by me before delivery. The service cannot guarantee that every issue will be found.
+            </p>
+          </details>
+
+          <details>
+            <summary>What documents should I provide?</summary>
+            <p>
+              Start with the solicitation or RFP, all available attachments,
+              amendments, and any relevant submission instructions. Identify
+              missing files or unreadable scans when you contact us.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do you review amendments?</summary>
+            <p>
+              Amendment comparison is included when applicable and when
+              the relevant original documents and amendments are supplied.
+              The review identifies changes found in the available materials.
+            </p>
+          </details>
+
+          <details>
+            <summary>How quickly can you complete a review?</summary>
+            <p>
+              Standard delivery is 5 business days after the complete package is received. A 48-hour rush can be agreed for urgent deadlines, depending on document volume, complexity, readability, and amendment count. The schedule is confirmed before work begins.
+            </p>
+          </details>
+
+          <details>
+            <summary>Does the review guarantee compliance or a contract award?</summary>
+            <p>
+              No. The service helps identify and organize requirements and
+              potential risks, but it cannot guarantee that every issue will
+              be identified, that a proposal is legally sufficient, or that
+              a bidder will receive an award. Your organization remains
+              responsible for its submission and final decisions.
+            </p>
+          </details>
+
+          <details>
+            <summary>Is this legal advice?</summary>
+            <p>
+              No. This is a document-review and proposal-readiness service,
+              not legal advice. Consult qualified counsel for legal
+              interpretation, contractual advice, or disputes.
+            </p>
+          </details>
+
+          <details>
+            <summary>How do I discuss confidentiality?</summary>
+            <p>
+              Contact us before sending sensitive or controlled material. I sign a confidentiality agreement before reviewing anything sensitive. By default the first-pass tool runs locally in my browser and documents are not uploaded to an outside service; any other handling is agreed with you in writing first. We also agree the transfer method and retention terms before you send anything. Do not email classified
+              information or material your organization is not authorized
+              to share.
+            </p>
+          </details>
+
+          <details>
+            <summary>How do I get started?</summary>
+            <p>
+              Email the solicitation identifier, submission deadline,
+              approximate document volume, and the review you need.
+              Please do not attach sensitive documents until an appropriate
+              transfer method has been agreed.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <div class="cta-panel">
+          <span class="eyebrow">Start the conversation</span>
+          <h2>Have an RFP deadline approaching?</h2>
+          <p>
+            Tell us about your solicitation, the deadline, and the
+            documents available. We will discuss fit, scope, and timing
+            before any engagement is accepted.
+          </p>
+
+          <div class="btn-row">
+            <a class="btn" href="mailto:hello@roshaniaisolution.online?subject=RFP%20Compliance%20Review%20Inquiry&body=Hello%20Roshan%20AI%20Solutions%2C%0A%0AOrganization%3A%0ASolicitation%20number%3A%0ASubmission%20deadline%3A%0AApproximate%20document%20volume%3A%0AReview%20needed%3A%0A%0APlease%20let%20me%20know%20whether%20the%20engagement%20fits%20your%20scope.">
+              Email Roshan AI Solutions <span aria-hidden="true">↗</span>
+            </a>
+            <a class="btn btn-secondary" id="bookCall" href="#" style="display:none;" target="_blank" rel="noopener">Book a 15-Minute Call</a>
+          </div>
+
+          <div class="contact-note">
+            <a href="mailto:hello@roshaniaisolution.online"
+              style="color:var(--blue-bright); text-decoration:none;">
+              hello@roshaniaisolution.online
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div>
+          <a class="brand" href="#home">
+            <span class="brand-mark" aria-hidden="true">R</span>
+            <span>
+              <span class="brand-name">Roshan AI Solutions</span>
+              <span class="brand-subtitle">RFP COMPLIANCE &amp; READINESS</span>
+            </span>
+          </a>
+
+          <p class="footer-description">
+            Structured, tool-assisted and human-reviewed RFP compliance and proposal-readiness support for IT contractors pursuing government opportunities. Based in Karachi, Pakistan.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#services">Services</a>
+          <a href="#sample">Sample Matrix</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#about">About</a> <a href="#faq">FAQ</a> <a href="mailto:hello@roshaniaisolution.online">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> Roshan AI Solutions. All rights reserved.</p>
+        <p>
+          Independent review service. Not affiliated with or endorsed by
+          any government agency.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Optional: paste your Cal.com or Calendly link between the quotes to show a booking button.
+    const BOOKING_URL = "";
+    if (BOOKING_URL) {
+      const b = document.getElementById("bookCall");
+      b.href = BOOKING_URL;
+      b.style.display = "";
+    }
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
